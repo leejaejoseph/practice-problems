@@ -17,5 +17,8 @@ var pivotIndex = function (nums) {
     }
     left += nums[j];
   }
+  if (left === 0) {
+    return nums.length - 1;
+  }
   return -1;
 };
