@@ -32,10 +32,10 @@ class MyLinkedList {
     public void addAtHead(int val) {
         Node headItem = new Node(val);
         if (head == null) {
-            tail = headItem;
-        } else {
-            headItem.next = head;
+            firstNode(headItem);
+            return;
         }
+        headItem.next = head;
         head = headItem;
         size++;
     }
@@ -43,10 +43,10 @@ class MyLinkedList {
     public void addAtTail(int val) {
         Node tailItem = new Node(val);
         if (head == null) {
-            head = tailItem;
-        } else {
-            tail.next = tailItem;
+            firstNode(tailItem);
+            return;
         }
+        tail.next = tailItem;
         tail = tailItem;
         size++;
     }
@@ -64,9 +64,7 @@ class MyLinkedList {
         }
 
         if (head == null) {
-            head = newItem;
-            tail = newItem;
-            size++;
+            firstNode(newItem);
             return;
         }
 
@@ -106,5 +104,10 @@ class MyLinkedList {
             tail = curr;
         }
         size--;
+    }
+    public void firstNode(Node firstNode) {
+        head = firstNode;
+        tail = firstNode;
+        size++;
     }
 }
